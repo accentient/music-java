@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>MusicStore</title>
+</head>
+<body>
+    <p th:text="'Hello, ' + ${name} + '!'" />
+    <p th:each="x: ${names}" th:text="'Hello ' + ${x}"/>
+</body>
+</html>

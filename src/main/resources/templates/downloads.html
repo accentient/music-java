@@ -1,0 +1,99 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/favicon.ico">
+
+    <title>QA Music</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <!-- <h3 class="masthead-brand">QA Music</h3>-->
+		  <img class="masthead-brand" src="https://www.qa.com/-/media/qa/logos/new%20logos/qa_logo_blue.png" >
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href="index.html">
+              <img src="img/blue-home-icon.png" height="25" width="25" />
+              Home
+            </a>
+            <a class="nav-link active" href="download">
+              <img src="img/blue-mp3-player-icon.png" height="25" width="25" />
+              Downloads
+            </a>
+            <a class="nav-link" th:href="'shoppingCart?cart=' + ${cart}">
+              <img src="img/shopping-cart-icon.png" height="25" width="25" />
+              Cart
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <main role="main">
+        <h1 class="cover-heading" th:text="${genre}">Downloads</h1>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4" >
+              <div class="list-group">
+                <!-- <a href="#" class="list-group-item list-group-item-action active">
+                  Cras justo odio
+                </a> -->
+
+                <a th:href="'?genre=jazz&cart=' + ${cart}" class="list-group-item list-group-item-action"><img src="img/saxophone-xxl.png" width="16px"> Jazz</a>
+                <a th:href="'?genre=rock&cart=' + ${cart}" class="list-group-item list-group-item-action"><img src="img/guitar-xl.png" width="16px"> Rock</a>
+                <a th:href="'?genre=pop&cart=' + ${cart}" class="list-group-item list-group-item-action"><img src="img/microphone-9-xxl.png" width="16px"> Pop</a>
+                <a th:href="'?genre=classical&cart=' + ${cart}" class="list-group-item list-group-item-action"><img src="img/violin-xl.png" width="16px"> Classical</a>
+                <a th:href="'?genre=country&cart=' + ${cart}" class="list-group-item list-group-item-action"><img src="img/horse-4-xxl.png" width="16px"> Country</a>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="list-group">
+                <!-- <a href="#" class="list-group-item list-group-item-action active">
+                  Cras justo odio
+                </a> -->
+
+                <a th:href="'?track=' + ${track.title} + '&cart=' + ${cart}" class="list-group-item list-group-item-action d-flex justify-content-between" th:each="track: ${tracks}">
+                  <span><label th:text="${track.title} + ' by ' + ${track.artist}"/>
+                  <label th:text="${track.getFormattedPrice()}"/>
+                  <img src='img/ajaxaddtocartsite.png' width='32px' height='32px'/></span>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>A RedOctober production</p>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </body>
+</html>

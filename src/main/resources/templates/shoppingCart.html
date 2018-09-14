@@ -1,0 +1,90 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/favicon.ico">
+    <title>QA Music</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <!-- <h3 class="masthead-brand">QA Music</h3>-->
+            <img class="masthead-brand" src="https://www.qa.com/-/media/qa/logos/new%20logos/qa_logo_blue.png" >
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link" href="index.html">
+                    <img src="img/blue-home-icon.png" height="25" width="25" />
+                    Home
+                </a>
+                <a class="nav-link active" href="download">
+                    <img src="img/blue-mp3-player-icon.png" height="25" width="25" />
+                    Downloads
+                </a>
+                <a class="nav-link" href="shoppingCart">
+                    <img src="img/shopping-cart-icon.png" height="25" width="25" />
+                    Cart
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main">
+        <h1 class="cover-heading">Shopping Cart</h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="list-group">
+                        <!-- <a href="#" class="list-group-item list-group-item-action active">
+                          Cras justo odio
+                        </a> -->
+
+                        <a class="list-group-item list-group-item-action d-flex justify-content-between" th:each="cartTrack: ${cartTrack}">
+                            <label th:text="${cartTrack.title} + ' by ' + ${cartTrack.artist} + ' @ ' + ${cartTrack.getFormattedPrice()}"/>
+                            <img src='img/remove.png' width='32px' height='32px'/>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <label th:text="${total}"/>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>A RedOctober production</p>
+        </div>
+    </footer>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</body>
+</html>
